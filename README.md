@@ -1,4 +1,4 @@
-# processing-drawing
+# Drawing Program (made with Processing JS)
 
 Simple to use drawing program
 4/3/2016
