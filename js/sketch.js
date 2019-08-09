@@ -16,13 +16,11 @@
 
 function setup() {
 	createCanvas(400, 400);
-	frameRate(60);
-	angleMode(DEGREES);
 }
 
 var drawingShape = 0;
 var drawingSize = 10;
-var isDrawing = false;
+var isDrawing = true;
 
 var small = 10;
 var medium = 30;
@@ -125,7 +123,7 @@ if (drawingSize === 50) {
 }
 ellipse(385, 390, 15, 15);
 
-mousePressed = function() {
+function mousePressed() {
 	isDrawing = true;
 
 	if (mouseY >= 350) {
@@ -283,124 +281,124 @@ mousePressed = function() {
 			return;
 		}
 	}
+}
 
-	draw = function() {
-		if (isDrawing === true) {
-			// The user is drawing
+function draw() {
+	if (isDrawing === true) {
+		// The user is drawing
 
-			if (drawingShape === 0) {
-				if (mouseButton === RIGHT) {
-					fill(255, 255, 255);
-					ellipse(mouseX, mouseY, drawingSize, drawingSize);
-				} else if (mouseButton === LEFT) {
-					fill(r, g, b);
-					ellipse(mouseX, mouseY, drawingSize, drawingSize);
-				}
-			} else if (drawingShape === 1) {
-				if (mouseButton === RIGHT) {
-					fill(255, 255, 255);
-					rect(mouseX, mouseY, drawingSize, drawingSize);
-				} else if (mouseButton === LEFT) {
-					fill(255, 0, 0);
-					rect(mouseX, mouseY, drawingSize, drawingSize);
-				}
+		if (drawingShape === 0) {
+			if (mouseButton === RIGHT) {
+				fill(255, 255, 255);
+				ellipse(mouseX, mouseY, drawingSize, drawingSize);
+			} else if (mouseButton === LEFT) {
+				fill(r, g, b);
+				ellipse(mouseX, mouseY, drawingSize, drawingSize);
 			}
-
-			noStroke();
-			fill(51, 51, 51);
-			rect(0, 350, 400, 50);
-
-			fill(217, 167, 41);
-			if (r === 217) {
-				strokeWeight(2);
-				stroke(255, 255, 255);
-			} else {
-				strokeWeight(1);
-				stroke(51, 51, 51);
-				noStroke();
-			}
-			rect(40, 355, 40, 40);
-
-			fill(120, 179, 32);
-			if (r === 120) {
-				strokeWeight(2);
-				stroke(255, 255, 255);
-			} else {
-				strokeWeight(1);
-				stroke(51, 51, 51);
-				noStroke();
-			}
-			rect(110, 355, 40, 40);
-
-			fill(93, 104, 232);
-			if (r === 93) {
-				strokeWeight(2);
-				stroke(255, 255, 255);
-			} else {
-				strokeWeight(1);
-				stroke(51, 51, 51);
-				noStroke();
-			}
-			rect(180, 355, 40, 40);
-
-			fill(134, 25, 140);
-			if (r === 134) {
-				strokeWeight(2);
-				stroke(255, 255, 255);
-			} else {
-				strokeWeight(1);
-				stroke(51, 51, 51);
-				noStroke();
-			}
-			rect(250, 355, 40, 40);
-
-			fill(255, 0, 0);
-			if (r === 255) {
-				strokeWeight(2);
-				stroke(255, 255, 255);
-			} else {
-				strokeWeight(1);
-				stroke(51, 51, 51);
-				noStroke();
-			}
-			rect(320, 355, 40, 40);
-
-			strokeWeight(1);
-			stroke(51, 51, 51);
-			noStroke();
-			fill(158, 147, 147);
-			rect(7, 363, 25, 25);
-			fill(0, 0, 0);
-			stroke(0, 0, 0);
-			strokeWeight(2);
-			line(11, 367, 28, 384);
-			line(28, 367, 11, 384);
-			strokeWeight(1);
-			stroke(51, 51, 51);
-			noStroke();
-
-			if (drawingSize === 10) {
+		} else if (drawingShape === 1) {
+			if (mouseButton === RIGHT) {
+				fill(255, 255, 255);
+				rect(mouseX, mouseY, drawingSize, drawingSize);
+			} else if (mouseButton === LEFT) {
 				fill(255, 0, 0);
-			} else {
-				fill(112, 112, 112);
+				rect(mouseX, mouseY, drawingSize, drawingSize);
 			}
-			ellipse(385, 362, 5, 5);
-			if (drawingSize === 30) {
-				fill(255, 0, 0);
-			} else {
-				fill(112, 112, 112);
-			}
-			ellipse(385, 375, 10, 10);
-			if (drawingSize === 50) {
-				fill(255, 0, 0);
-			} else {
-				fill(112, 112, 112);
-			}
-			ellipse(385, 390, 15, 15);
 		}
-	};
-};
 
-mouseReleased = function() {
+		noStroke();
+		fill(51, 51, 51);
+		rect(0, 350, 400, 50);
+
+		fill(217, 167, 41);
+		if (r === 217) {
+			strokeWeight(2);
+			stroke(255, 255, 255);
+		} else {
+			strokeWeight(1);
+			stroke(51, 51, 51);
+			noStroke();
+		}
+		rect(40, 355, 40, 40);
+
+		fill(120, 179, 32);
+		if (r === 120) {
+			strokeWeight(2);
+			stroke(255, 255, 255);
+		} else {
+			strokeWeight(1);
+			stroke(51, 51, 51);
+			noStroke();
+		}
+		rect(110, 355, 40, 40);
+
+		fill(93, 104, 232);
+		if (r === 93) {
+			strokeWeight(2);
+			stroke(255, 255, 255);
+		} else {
+			strokeWeight(1);
+			stroke(51, 51, 51);
+			noStroke();
+		}
+		rect(180, 355, 40, 40);
+
+		fill(134, 25, 140);
+		if (r === 134) {
+			strokeWeight(2);
+			stroke(255, 255, 255);
+		} else {
+			strokeWeight(1);
+			stroke(51, 51, 51);
+			noStroke();
+		}
+		rect(250, 355, 40, 40);
+
+		fill(255, 0, 0);
+		if (r === 255) {
+			strokeWeight(2);
+			stroke(255, 255, 255);
+		} else {
+			strokeWeight(1);
+			stroke(51, 51, 51);
+			noStroke();
+		}
+		rect(320, 355, 40, 40);
+
+		strokeWeight(1);
+		stroke(51, 51, 51);
+		noStroke();
+		fill(158, 147, 147);
+		rect(7, 363, 25, 25);
+		fill(0, 0, 0);
+		stroke(0, 0, 0);
+		strokeWeight(2);
+		line(11, 367, 28, 384);
+		line(28, 367, 11, 384);
+		strokeWeight(1);
+		stroke(51, 51, 51);
+		noStroke();
+
+		if (drawingSize === 10) {
+			fill(255, 0, 0);
+		} else {
+			fill(112, 112, 112);
+		}
+		ellipse(385, 362, 5, 5);
+		if (drawingSize === 30) {
+			fill(255, 0, 0);
+		} else {
+			fill(112, 112, 112);
+		}
+		ellipse(385, 375, 10, 10);
+		if (drawingSize === 50) {
+			fill(255, 0, 0);
+		} else {
+			fill(112, 112, 112);
+		}
+		ellipse(385, 390, 15, 15);
+	}
+}
+
+function mouseReleased() {
 	isDrawing = false;
-};
+}
