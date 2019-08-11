@@ -14,13 +14,9 @@
 
 **/
 
-function setup() {
-	createCanvas(400, 400);
-}
-
 var drawingShape = 0;
 var drawingSize = 10;
-var isDrawing = true;
+var isDrawing = false;
 
 var small = 10;
 var medium = 30;
@@ -30,100 +26,104 @@ var r = 255;
 var g = 0;
 var b = 0;
 
-background(255, 255, 255);
-noStroke();
-fill(51, 51, 51);
-rect(0, 350, 400, 50);
+function setup() {
+	createCanvas(400, 400);
 
-fill(217, 167, 41);
-if (r === 217) {
-	strokeWeight(2);
-	stroke(255, 255, 255);
-} else {
-	strokeWeight(1);
-	stroke(51, 51, 51);
+	background(255, 255, 255);
 	noStroke();
-}
-rect(40, 355, 40, 40);
+	fill(51, 51, 51);
+	rect(0, 350, 400, 50);
 
-fill(120, 179, 32);
-if (r === 120) {
-	strokeWeight(2);
-	stroke(255, 255, 255);
-} else {
-	strokeWeight(1);
-	stroke(51, 51, 51);
-	noStroke();
-}
-rect(110, 355, 40, 40);
+	fill(217, 167, 41);
+	if (r === 217) {
+		strokeWeight(2);
+		stroke(255, 255, 255);
+	} else {
+		strokeWeight(1);
+		stroke(51, 51, 51);
+		noStroke();
+	}
+	rect(40, 355, 40, 40);
 
-fill(93, 104, 232);
-if (r === 93) {
-	strokeWeight(2);
-	stroke(255, 255, 255);
-} else {
-	strokeWeight(1);
-	stroke(51, 51, 51);
-	noStroke();
-}
-rect(180, 355, 40, 40);
+	fill(120, 179, 32);
+	if (r === 120) {
+		strokeWeight(2);
+		stroke(255, 255, 255);
+	} else {
+		strokeWeight(1);
+		stroke(51, 51, 51);
+		noStroke();
+	}
+	rect(110, 355, 40, 40);
 
-fill(134, 25, 140);
-if (r === 134) {
-	strokeWeight(2);
-	stroke(255, 255, 255);
-} else {
-	strokeWeight(1);
-	stroke(51, 51, 51);
-	noStroke();
-}
-rect(250, 355, 40, 40);
+	fill(93, 104, 232);
+	if (r === 93) {
+		strokeWeight(2);
+		stroke(255, 255, 255);
+	} else {
+		strokeWeight(1);
+		stroke(51, 51, 51);
+		noStroke();
+	}
+	rect(180, 355, 40, 40);
 
-fill(255, 0, 0);
-if (r === 255) {
-	strokeWeight(2);
-	stroke(255, 255, 255);
-} else {
-	strokeWeight(1);
-	stroke(51, 51, 51);
-	noStroke();
-}
-rect(320, 355, 40, 40);
+	fill(134, 25, 140);
+	if (r === 134) {
+		strokeWeight(2);
+		stroke(255, 255, 255);
+	} else {
+		strokeWeight(1);
+		stroke(51, 51, 51);
+		noStroke();
+	}
+	rect(250, 355, 40, 40);
 
-strokeWeight(1);
-stroke(51, 51, 51);
-noStroke();
-fill(158, 147, 147);
-rect(7, 363, 25, 25);
-fill(0, 0, 0);
-stroke(0, 0, 0);
-strokeWeight(2);
-line(11, 367, 28, 384);
-line(28, 367, 11, 384);
-strokeWeight(1);
-stroke(51, 51, 51);
-noStroke();
-
-if (drawingSize === 10) {
 	fill(255, 0, 0);
-} else {
-	fill(112, 112, 112);
-}
-ellipse(385, 362, 5, 5);
-if (drawingSize === 30) {
-	fill(255, 0, 0);
-} else {
-	fill(112, 112, 112);
-}
-ellipse(385, 375, 10, 10);
-if (drawingSize === 50) {
-	fill(255, 0, 0);
-} else {
-	fill(112, 112, 112);
-}
-ellipse(385, 390, 15, 15);
+	if (r === 255) {
+		strokeWeight(2);
+		stroke(255, 255, 255);
+	} else {
+		strokeWeight(1);
+		stroke(51, 51, 51);
+		noStroke();
+	}
+	rect(320, 355, 40, 40);
 
-function mousePressed() {
+	strokeWeight(1);
+	stroke(51, 51, 51);
+	noStroke();
+	fill(158, 147, 147);
+	rect(7, 363, 25, 25);
+	fill(0, 0, 0);
+	stroke(0, 0, 0);
+	strokeWeight(2);
+	line(11, 367, 28, 384);
+	line(28, 367, 11, 384);
+	strokeWeight(1);
+	stroke(51, 51, 51);
+	noStroke();
+
+	if (drawingSize === 10) {
+		fill(255, 0, 0);
+	} else {
+		fill(112, 112, 112);
+	}
+	ellipse(385, 362, 5, 5);
+	if (drawingSize === 30) {
+		fill(255, 0, 0);
+	} else {
+		fill(112, 112, 112);
+	}
+	ellipse(385, 375, 10, 10);
+	if (drawingSize === 50) {
+		fill(255, 0, 0);
+	} else {
+		fill(112, 112, 112);
+	}
+	ellipse(385, 390, 15, 15);
+}
+
+function paint() {
 	isDrawing = true;
 
 	if (mouseY >= 350) {
@@ -283,6 +283,14 @@ function mousePressed() {
 	}
 }
 
+function mousePressed() {
+	paint();
+}
+
+function mouseReleased() {
+	isDrawing = false;
+}
+
 function draw() {
 	if (isDrawing === true) {
 		// The user is drawing
@@ -397,8 +405,4 @@ function draw() {
 		}
 		ellipse(385, 390, 15, 15);
 	}
-}
-
-function mouseReleased() {
-	isDrawing = false;
 }
